@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui
+spec:
+  minReadySeconds: 3
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 60
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: ui
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9797"
+      labels:
+        app: ui
+    spec:
+      containers:
+        - name: otto-ui
+          image: ghcr.io/danielmunro/otto-ui:v0.1.45
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+          env:
+            - name: REACT_APP_BASE_URL
+              value: https://api.thirdplaceapp.com
+            - name: REACT_APP_IMAGE_BASE_URL
+              value: https://third-place-prod.s3.us-west-2.amazonaws.com
+            - name: REACT_APP_ENV
+              value: dev
+      imagePullSecrets:
+        - name: dockerconfigjson-github-com
