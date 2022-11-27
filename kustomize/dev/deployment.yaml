@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: otto-ui
-          image: ghcr.io/third-place/web-ui:v0.1.1
+          image: ghcr.io/third-place/web-ui:v0.1.2
           imagePullPolicy: Always
           ports:
             - containerPort: 80
