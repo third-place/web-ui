@@ -104,11 +104,13 @@ export default function Home() {
         <NewPost onPostCreated={getPosts} />
       )}
       <h2>Public Posts</h2>
-      <PostCollection
-        posts={posts}
-        reloadPosts={getPosts}
-        onDelete={removePost}
-      />
+      { posts && (
+        <PostCollection
+          posts={posts}
+          reloadPosts={getPosts}
+          onDelete={removePost}
+        />
+      )}
     </Container>
   );
 }
