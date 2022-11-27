@@ -3,26 +3,20 @@ kind: Deployment
 metadata:
   name: ui
 spec:
+  replicas: 2
   minReadySeconds: 3
   revisionHistoryLimit: 5
   progressDeadlineSeconds: 60
-  strategy:
-    rollingUpdate:
-      maxUnavailable: 0
-    type: RollingUpdate
   selector:
     matchLabels:
       app: ui
   template:
     metadata:
-      annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "9797"
       labels:
         app: ui
     spec:
       containers:
-        - name: otto-ui
+        - name: ui
           image: ghcr.io/third-place/web-ui:v0.1.1
           imagePullPolicy: Always
           ports:
