@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: web-ui
-  description: Frontend for otto social network
+  description: Frontend for the Third place social network
   tags:
     - javascript
     - react
@@ -17,3 +17,4 @@ spec:
     - user-service-api
     - community-service-api
     - image-service-api
+    - notification-service-api
