@@ -61,6 +61,18 @@ export default function Notifications() {
           </Link>
         );
       }
+      case "replied": {
+        const triggerUser = notification.triggered_by_user;
+        return (
+          <Link to={notification.link}>
+            <NotificationAvatar />
+            <TextWrap>
+              @{triggerUser.username} replied to your post
+            </TextWrap>
+            <div style={{clear: "both"}} />
+          </Link>
+        );
+      }
       default: {
         return (
           <div />
