@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: ui
 spec:
-  replicas: 2
+  replicas: 1
   minReadySeconds: 3
   revisionHistoryLimit: 5
   progressDeadlineSeconds: 60
