@@ -1,4 +1,4 @@
-import { del, get, patchJSON, postJSON } from '@tkrotoff/fetch';
+import { del, get, putJSON } from '@tkrotoff/fetch';
 import { baseUrl } from '../utils/config';
 
 export function getUser(sessionToken) {
@@ -22,8 +22,8 @@ export function login(email, password) {
   );
 }
 
-export function refreshSession(sessionToken) {
-  return patchJSON(`${baseUrl}/session`, { sessionToken });
+export function refreshSession(token) {
+  return putJSON(`${baseUrl}/session?token=${token}`);
 }
 
 export function deleteSession(token) {

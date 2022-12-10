@@ -1,5 +1,6 @@
 import { ThemeProvider } from '@emotion/react';
 import { useEffect, useState } from 'react';
+import { useJwt } from "react-jwt";
 import { getFollowers, getFollowing } from './actions/follow';
 import { getNotifications } from './actions/notification';
 import { getPostsForUser } from './actions/post';
@@ -44,6 +45,8 @@ function App() {
   const [followers, setFollowers] = useState([]);
   const [notifications, setNotifications] = useState([]);
   const [uiMode, setUiMode] = useState(localStorage.getItem("uiMode") ?? "dark");
+  const { decodedToken, isExpired } = useJwt(sessionToken);
+  const daysRemaining = decodedToken && !isExpired ? (decodedToken.exp * 1000 - Date.now()) / (1000 * 60 * 60 * 24) : null;
 
   const tryGetNotifications = async (token) => {
     const response = await getNotifications(token);
@@ -118,18 +121,17 @@ function App() {
         await setLoggedOutState();
         return;
       }
-      try {
-        await tryGetUser(sessionToken);
-      } catch (e) {
-        try {
-          const refreshToken = await tryRefreshSession(sessionToken);
-          await tryGetUser(refreshToken);
-        } catch (e) {
-          await setLoggedOutState();
-        }
-      }
+      await tryGetUser(sessionToken);
     })();
-  }, []);
+  }, [sessionToken]);
+
+  useEffect(() => {
+    if (daysRemaining && daysRemaining < 4) {
+      (async function () {
+        await tryRefreshSession(sessionToken);
+      })();
+    }
+  }, [daysRemaining]);
 
   useEffect(() => {
     if (loggedInUser) {
@@ -139,6 +141,14 @@ function App() {
       })();
     }
   }, [isLoggedIn]);
+
+  useEffect(() => {
+    if (isExpired) {
+      (async function() {
+        await setLoggedOutState();
+      })();
+    }
+  }, [isExpired]);
 
   return (
     <ThemeProvider theme={uiMode === "light" ? lightTheme : darkTheme}>
