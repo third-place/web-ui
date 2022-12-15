@@ -10,8 +10,9 @@ import { baseUrl } from '../utils/config';
 import { useLogin } from '../hooks/login';
 
 export default function ForgotPassword() {
-  const [email, setEmail] = useState('');
-  const [code, setCode] = useState('');
+  const params = new URLSearchParams(document.location.search);
+  const [email, setEmail] = useState(params.get("email") ?? "");
+  const [code, setCode] = useState(params.get("code") ?? "");
   const [password, setPassword] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [completed, setCompleted] = useState(false);
