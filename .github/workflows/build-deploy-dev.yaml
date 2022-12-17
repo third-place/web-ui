@@ -10,6 +10,6 @@ jobs:
     uses: third-place/actions/.github/workflows/deploy-to-env.yaml@main
     needs: publish-dev-docker
     with:
-      tag: ${{ inputs.tag }}
+      tag: ${{ github.ref_name }}
       env: dev
     secrets: inherit
