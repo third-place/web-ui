@@ -42,7 +42,7 @@ export default function ForgotPassword() {
     setSubmitted(false);
     setError(false);
     try {
-      await postJSON(`${baseUrl}/forgot-password`, {username: email});
+      await postJSON(`${baseUrl}/forgot-password`, {email});
       setSubmitted(true);
     } catch (e) {
       setError(true);
