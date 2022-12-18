@@ -14,6 +14,7 @@ export default function ForgotPassword() {
   const [email, setEmail] = useState(params.get("email") ?? "");
   const [code, setCode] = useState(params.get("code") ?? "");
   const [password, setPassword] = useState('');
+  const [readyForPassword, setReadyForPassword] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [completed, setCompleted] = useState(false);
   const [error, setError] = useState(false);
@@ -22,7 +23,7 @@ export default function ForgotPassword() {
 
   const tryForgotPassword = async (event) => {
     event.preventDefault();
-    if (submitted && !error) {
+    if (readyForPassword && !error) {
       try {
         await putJSON(`${baseUrl}/forgot-password`, {
           user: {
@@ -39,7 +40,7 @@ export default function ForgotPassword() {
       }
       return;
     }
-    setSubmitted(false);
+    setReadyForPassword(false);
     setError(false);
     try {
       await postJSON(`${baseUrl}/forgot-password`, {email});
@@ -51,7 +52,7 @@ export default function ForgotPassword() {
 
   useEffect(() => {
     if (email && code) {
-      setSubmitted(true);
+      setReadyForPassword(true);
     }
   }, []);
 
@@ -59,7 +60,7 @@ export default function ForgotPassword() {
     <Container title="Account Recovery">
       { submitted && !completed && (
         <Alert severity="info">
-          A password reset request has been submitted. Please check your email and provide the code here, along with your new password.
+          A password reset request has been submitted. Please check your email click the link provided in order to finish resetting your password.
         </Alert>
       )}
       { completed && (
@@ -72,48 +73,50 @@ export default function ForgotPassword() {
           An error occurred, is that email address registered?
         </Alert>
       )}
-      <PaperContainer>
-        <form onSubmit={tryForgotPassword}>
-          <div>
-            <TextInput
-              label="Email Address"
-              variant="outlined"
-              value={email}
-              onChangeValue={setEmail}
-              style={{width: 400}}
-              disabled={submitted}
-            />
-          </div>
-          { submitted && (
+      {!submitted && (
+        <PaperContainer>
+          <form onSubmit={tryForgotPassword}>
             <div>
               <TextInput
-                label="Confirmation Code"
+                label="Email Address"
                 variant="outlined"
-                value={code}
-                onChangeValue={setCode}
+                value={email}
+                onChangeValue={setEmail}
                 style={{width: 400}}
-              />
-              <TextInput
-                label="New Password"
-                variant="outlined"
-                value={password}
-                onChangeValue={setPassword}
-                type="password"
-                style={{width: 400}}
+                disabled={readyForPassword}
               />
             </div>
-          )}
-          <div>
-            <Button
-              variant="contained"
-              type="submit"
-              disabled={completed}
-            >
-              Submit Password Reset Request
-            </Button>
-          </div>
-        </form>
-      </PaperContainer>
+            { readyForPassword && (
+              <div>
+                <TextInput
+                  label="Confirmation Code"
+                  variant="outlined"
+                  value={code}
+                  onChangeValue={setCode}
+                  style={{width: 400}}
+                />
+                <TextInput
+                  label="New Password"
+                  variant="outlined"
+                  value={password}
+                  onChangeValue={setPassword}
+                  type="password"
+                  style={{width: 400}}
+                />
+              </div>
+            )}
+            <div>
+              <Button
+                variant="contained"
+                type="submit"
+                disabled={completed}
+              >
+                Submit Password Reset Request
+              </Button>
+            </div>
+          </form>
+        </PaperContainer>
+      )}
     </Container>
   );
 }
