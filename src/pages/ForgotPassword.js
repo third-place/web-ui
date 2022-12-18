@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import { postJSON, putJSON } from '@tkrotoff/fetch';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Alert from '../components/Alert';
 import Container from '../components/Container';
@@ -48,6 +48,12 @@ export default function ForgotPassword() {
       setError(true);
     }
   };
+
+  useEffect(() => {
+    if (email && code) {
+      setSubmitted(true);
+    }
+  }, []);
 
   return (
     <Container title="Account Recovery">
