@@ -15,14 +15,10 @@ export function useLogin() {
   useEffect(async () => {
     if (response && response.status === 201) {
       const data = await response.json();
-      if (data.AuthResponse === 3) {
-        // failed
-        return;
-      }
-      setLoggedInUser(data.User);
+      setLoggedInUser(data.user);
       setIsLoggedIn(true);
-      setSessionToken(data.Token);
-      localStorage.setItem("token", data.Token);
+      setSessionToken(data.token);
+      localStorage.setItem("token", data.token);
       await tryGetNotifications(data.Token);
       navigate("/");
     }
