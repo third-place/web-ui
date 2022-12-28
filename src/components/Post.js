@@ -10,7 +10,6 @@ import {
   Typography,
   Link, Card, IconButton,
 } from '@mui/material';
-import nl2br from 'react-nl2br';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
@@ -21,16 +20,12 @@ import RepeatIcon from '@mui/icons-material/Repeat';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import LinkIcon from '@mui/icons-material/Link';
-import TimeAgo from 'javascript-time-ago';
-import en from 'javascript-time-ago/locale/en';
 import { createPostLike, deletePostLike } from '../actions/like';
 import { deletePost } from '../actions/post';
 import { imageBaseUrl } from '../utils/config';
 import Context from '../utils/Context';
+import { timeAgo } from '../utils/timeAgo';
 import PostMenu from './PostMenu';
-
-TimeAgo.addDefaultLocale(en);
-const timeAgo = new TimeAgo('en-US');
 
 export default function Post({
   post: {

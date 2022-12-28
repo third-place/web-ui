@@ -1,7 +1,6 @@
 import Container from '../components/Container';
 import { useContext, useEffect, useState } from 'react';
 import { getUsers } from '../actions/user';
-import en from 'javascript-time-ago/locale/en';
 import Context from '../utils/Context';
 import {
   Paper,
@@ -10,10 +9,7 @@ import {
   TableContainer, TableHead,
   TableRow
 } from '@mui/material';
-import TimeAgo from 'javascript-time-ago';
-
-TimeAgo.addDefaultLocale(en);
-const timeAgo = new TimeAgo('en-US');
+import { timeAgo } from '../utils/timeAgo';
 
 export default function Users() {
   const [users, setUsers] = useState([]);
