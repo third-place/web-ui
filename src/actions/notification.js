@@ -13,8 +13,8 @@ export function acknowledgeNotifications(sessionToken, lastNotification, firstNo
   return patchJSON(
     `${baseUrl}/notification`,
     {
-      datetime_started: lastNotification.created_at,
-      datetime_ended: firstNotification.created_at,
+      datetime_started: firstNotification.created_at,
+      datetime_ended: lastNotification.created_at,
     },
     {
       headers: {

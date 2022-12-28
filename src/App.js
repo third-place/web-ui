@@ -33,6 +33,7 @@ import {
   Route,
 } from "react-router-dom";
 import { darkTheme, lightTheme } from './utils/theme';
+import Users from './pages/Users';
 
 function App() {
   const [sessionToken, setSessionToken] = useState(localStorage.getItem("token"));
@@ -172,6 +173,7 @@ function App() {
             <Route path="/update-profile" element={<ProtectedRoute component={UpdateProfile} />} />
             <Route path="/moderate-user/:username" element={<ProtectedRoute role="moderator" component={ModerateUser} />} />
             <Route path="/moderate-post/:uuid" element={<ProtectedRoute role="moderator" component={ModerateUser} />} />
+            <Route path="/users" element={<ProtectedRoute role="admin" component={Users} />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </Router>
