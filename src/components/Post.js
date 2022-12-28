@@ -165,14 +165,13 @@ export default function Post({
               style={{ float: "left", marginRight: 10 }}
             />
             <Link component={RouterLink} to={`/u/${share.user.username}`}>
-              {share.user.name} @{share.user.username}
+              <b>{share.user.name}</b>
+              <span style={{color: "#f17887", margin: "0 20px"}}>@{share.user.username}</span>
+              <span style={{fontSize: "smaller"}}>{timeAgo.format(new Date(share.created_at))}</span>
             </Link>
-            <Typography color="text.secondary">
-              {new Date(share.created_at).toLocaleString()}
-            </Typography>
-            <Typography variant="body2">
-              {nl2br(share.text)}
-            </Typography>
+            <ReactMarkdown>
+              {share.text}
+            </ReactMarkdown>
           </Paper>
         )}
         <div>
