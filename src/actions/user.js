@@ -44,3 +44,11 @@ export function submitOtp(username, code) {
     code,
   });
 }
+
+export function getUsers(sessionToken,) {
+  return get(`${baseUrl}/user`, {
+    headers: {
+      'x-session-token': sessionToken,
+    }
+  });
+}
