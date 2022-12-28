@@ -14,5 +14,5 @@ export function createAlbum(sessionToken, name) {
 }
 
 export function getAlbums(username) {
-  return get(`${baseUrl}/user/${username}/album`);
+  return get(`${baseUrl}/albums/${username}`);
 }
