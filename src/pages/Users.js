@@ -1,8 +1,10 @@
 import Container from '../components/Container';
 import { useContext, useEffect, useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { getUsers } from '../actions/user';
 import Context from '../utils/Context';
 import {
+  Link,
   Paper,
   Table,
   TableBody, TableCell,
@@ -47,7 +49,7 @@ export default function Users() {
             {users.map(user => (
               <TableRow key={user.uuid}>
                 <TableCell>
-                  {user.username}
+                  <Link component={RouterLink} to={`/u/${user.username}`}>{user.username}</Link>
                 </TableCell>
                 <TableCell>
                   {user.is_banned ? "Banned" : "Good"}
