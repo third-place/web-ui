@@ -2,7 +2,7 @@ import { get, postJSON } from '@tkrotoff/fetch';
 import { baseUrl } from '../utils/config';
 
 export function getReplies(sessionToken, postUuid) {
-  return get(`${baseUrl}/post/${postUuid}/replies`, {
+  return get(`${baseUrl}/post/${postUuid}/reply`, {
     headers: {
       'x-session-token': sessionToken,
     },

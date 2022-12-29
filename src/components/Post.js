@@ -7,7 +7,6 @@ import {
   DialogContentText,
   DialogTitle,
   Paper,
-  Typography,
   Link, Card, IconButton,
 } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
@@ -24,8 +23,8 @@ import { createPostLike, deletePostLike } from '../actions/like';
 import { deletePost } from '../actions/post';
 import { imageBaseUrl } from '../utils/config';
 import Context from '../utils/Context';
-import { timeAgo } from '../utils/timeAgo';
 import PostMenu from './PostMenu';
+import TitleSlug from './TitleSlug';
 
 export default function Post({
   post: {
@@ -115,13 +114,12 @@ export default function Post({
         sx={{ width: 56, height: 56 }}
       />
       <div style={{width: "90%", paddingLeft: 72}}>
-        <Typography variant="h6">
-          <Link component={RouterLink} to={`/u/${author.username}`}>
-            <b>{author.name}</b>
-            <span style={{color: "#f17887", margin: "0 20px"}}>@{author.username}</span>
-            <span style={{fontSize: "smaller"}}>{timeAgo.format(created)}</span>
-          </Link>
-        </Typography>
+        <TitleSlug
+          name={author.name}
+          username={author.username}
+          created={created}
+          uuid={uuid}
+        />
         <div onClick={onClickExpand}>
           <div
             style={{
@@ -159,11 +157,11 @@ export default function Post({
               src={share.user.profile_pic ? `${imageBaseUrl}/${share.user.profile_pic}` : ''}
               style={{ float: "left", marginRight: 10 }}
             />
-            <Link component={RouterLink} to={`/u/${share.user.username}`}>
-              <b>{share.user.name}</b>
-              <span style={{color: "#f17887", margin: "0 20px"}}>@{share.user.username}</span>
-              <span style={{fontSize: "smaller"}}>{timeAgo.format(new Date(share.created_at))}</span>
-            </Link>
+            <TitleSlug
+              name={share.user.name}
+              username={share.user.username}
+              created={new Date(share.created_at)}
+            />
             <ReactMarkdown>
               {share.text}
             </ReactMarkdown>
