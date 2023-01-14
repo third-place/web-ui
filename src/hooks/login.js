@@ -19,7 +19,7 @@ export function useLogin() {
       setIsLoggedIn(true);
       setSessionToken(data.token);
       localStorage.setItem("token", data.token);
-      await tryGetNotifications(data.Token);
+      await tryGetNotifications(data.token);
       navigate("/");
     }
   }, [response]);

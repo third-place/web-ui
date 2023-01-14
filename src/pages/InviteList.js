@@ -11,7 +11,7 @@ export default function InviteList() {
 
   useEffect(() => {
     (async function() {
-      const response = await getInvites(0);
+      const response = await getInvites(sessionToken, 0);
       const data = await response.json();
       setInvites(data);
     })();

@@ -30,7 +30,6 @@ export default function AuthMenu({ showLabel }) {
     setLoggedInUser(null);
     setIsLoggedIn(false);
     setPosts([]);
-    await deleteSession(sessionToken);
     localStorage.setItem("token", null);
     navigate("/");
   };

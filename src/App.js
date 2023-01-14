@@ -117,12 +117,9 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      if (!sessionToken) {
-        console.log("no session found");
-        await setLoggedOutState();
-        return;
+      if (sessionToken !== null) {
+        await tryGetUser(sessionToken);
       }
-      await tryGetUser(sessionToken);
     })();
   }, [sessionToken]);
 
