@@ -27,7 +27,7 @@
   "scripts": {
     "start": "BASE_URL=localhost IMAGE_BASE_URL=https://otto-image-uploads.s3.us-west-2.amazonaws.com PORT=3000 react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "tests": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
