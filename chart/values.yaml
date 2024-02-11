@@ -6,3 +6,4 @@ service:
   postgresql:
     enabled: false
   env: []
+  isPublic: true
