@@ -1,8 +1,8 @@
 import { postJSON, get, del, putJSON } from '@tkrotoff/fetch';
-import { baseUrl } from '../utils/config';
+import { communityService } from '../utils/config';
 
 export function createPost(sessionToken, userUuid, newPostText, draft, images) {
-  return postJSON(`${baseUrl}/post`, {
+  return postJSON(`${communityService}/post`, {
     user: {uuid: userUuid},
     text:  newPostText,
     draft,
@@ -15,7 +15,7 @@ export function createPost(sessionToken, userUuid, newPostText, draft, images) {
 }
 
 export function createShare(sessionToken, userUuid, newPostText, images, postUuid) {
-  return postJSON(`${baseUrl}/share`, {
+  return postJSON(`${communityService}/share`, {
     user: {uuid: userUuid},
     post: {uuid: postUuid},
     text:  newPostText,
@@ -28,7 +28,7 @@ export function createShare(sessionToken, userUuid, newPostText, images, postUui
 }
 
 export function deletePost(sessionToken, postUuid) {
-  return del(`${baseUrl}/post/${postUuid}`, {
+  return del(`${communityService}/post/${postUuid}`, {
     headers: {
       'x-session-token': sessionToken,
     },
@@ -36,7 +36,7 @@ export function deletePost(sessionToken, postUuid) {
 }
 
 export function getDraftPosts(sessionToken) {
-  return get(`${baseUrl}/post/draft`, {
+  return get(`${communityService}/post/draft`, {
     headers: {
       'x-session-token': sessionToken,
     }
@@ -44,7 +44,7 @@ export function getDraftPosts(sessionToken) {
 }
 
 export function getPostsForUser(sessionToken, username) {
-  return get(`${baseUrl}/posts/${username}`, {
+  return get(`${communityService}/posts/${username}`, {
     headers: {
       'x-session-token': sessionToken,
     },
@@ -52,15 +52,15 @@ export function getPostsForUser(sessionToken, username) {
 }
 
 export function getLikedPostsForUser(username) {
-  return get(`${baseUrl}/likes/${username}`);
+  return get(`${communityService}/likes/${username}`);
 }
 
 export function getFollowPostsForUser(sessionToken, userUuid) {
-  return get(`${baseUrl}/post/follows/${userUuid}`);
+  return get(`${communityService}/post/follows/${userUuid}`);
 }
 
 export function getPosts(sessionToken) {
-  return get(`${baseUrl}/post`, {
+  return get(`${communityService}/post`, {
     headers: {
       'x-session-token': sessionToken,
     },
@@ -68,7 +68,7 @@ export function getPosts(sessionToken) {
 }
 
 export function getPost(sessionToken, postUuid) {
-  return get(`${baseUrl}/post/${postUuid}`, {
+  return get(`${communityService}/post/${postUuid}`, {
     headers: {
       'x-session-token': sessionToken,
     },

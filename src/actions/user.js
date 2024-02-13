@@ -1,9 +1,9 @@
 import { get, postJSON, putJSON } from '@tkrotoff/fetch';
-import { baseUrl } from '../utils/config';
+import { userService } from '../utils/config';
 
 export function signUp(username, email, password, inviteCode) {
   return fetch(
-    `${baseUrl}/user`,
+    `${userService}/user`,
     {
       method: 'POST',
       mode: 'cors',
@@ -22,11 +22,11 @@ export function signUp(username, email, password, inviteCode) {
 }
 
 export function getUserByUsername(username) {
-  return get(`${baseUrl}/user/${username}`)
+  return get(`${userService}/user/${username}`)
 }
 
 export function updateUser(sessionToken, uuid, name, birthday, bio) {
-  return putJSON(`${baseUrl}/user`, {
+  return putJSON(`${userService}/user`, {
     name,
     birthday,
     bio_message: bio,
@@ -39,14 +39,14 @@ export function updateUser(sessionToken, uuid, name, birthday, bio) {
 }
 
 export function submitOtp(username, code) {
-  return postJSON(`${baseUrl}/otp`, {
+  return postJSON(`${userService}/otp`, {
     user: { username },
     code,
   });
 }
 
 export function getUsers(sessionToken,) {
-  return get(`${baseUrl}/user`, {
+  return get(`${userService}/user`, {
     headers: {
       'x-session-token': sessionToken,
     }

@@ -3,9 +3,13 @@ service:
   port: 80
   targetPort: 3000
   secrets: []
+  env:
+    USER_SERVICE: localhost:9004
+    NOTIFICATION_SERVICE: localhost:9003
+    IMAGE_SERVICE: localhost:9002
+    COMMUNITY_SERVICE: localhost:9001
   postgresql:
     enabled: false
-  env: []
   ingress:
     enabled: true
     paths:
