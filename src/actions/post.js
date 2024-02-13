@@ -76,7 +76,7 @@ export function getPost(sessionToken, postUuid) {
 }
 
 export function updatePost(sessionToken, uuid, text, draft) {
-  return putJSON(`${baseUrl}/post`, {
+  return putJSON(`${communityService}/post`, {
     uuid,
     text,
     draft,
