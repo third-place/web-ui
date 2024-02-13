@@ -6,3 +6,7 @@ service:
   postgresql:
     enabled: false
   env: []
+  ingress:
+    enabled: true
+    paths:
+      - "/"
