@@ -1,6 +1,6 @@
 service:
   enabled: true
-  port: 8000
+  port: 80
   targetPort: 3000
   secrets: []
   postgresql:
