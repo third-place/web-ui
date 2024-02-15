@@ -8,7 +8,7 @@ service:
     REACT_APP_NOTIFICATION_SERVICE: http://localhost:9003
     REACT_APP_IMAGE_SERVICE: http://localhost:9002
     REACT_APP_COMMUNITY_SERVICE: http://localhost:9001
-  postgresql:
+  postgres:
     enabled: false
   ingress:
     enabled: true
