@@ -10,6 +10,8 @@ const primaryColor = '#e71d36';
 const secondaryColor = '#95d5b2';
 const backgroundColor = '#FDFFFC';
 
+console.log(process.env);
+
 export {
   baseUrl,
   userService,
