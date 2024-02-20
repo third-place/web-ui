@@ -1,13 +1,13 @@
 import { del, get, putJSON } from '@tkrotoff/fetch';
-import { baseUrl } from '../utils/config';
+import { userService } from '../utils/config';
 
 export function getUser(sessionToken) {
-  return get(`${baseUrl}/session?token=${sessionToken}`);
+  return get(`${userService}/session?token=${sessionToken}`);
 }
 
 export function login(email, password) {
   return fetch(
-    `${baseUrl}/session`, {
+    `${userService}/session`, {
       method: 'POST',
       mode: 'cors',
       cache: 'no-cache',
@@ -23,9 +23,9 @@ export function login(email, password) {
 }
 
 export function refreshSession(token) {
-  return putJSON(`${baseUrl}/session?token=${token}`);
+  return putJSON(`${userService}/session?token=${token}`);
 }
 
 export function deleteSession(token) {
-  return del(`${baseUrl}/session?token=${token}`);
+  return del(`${userService}/session?token=${token}`);
 }
