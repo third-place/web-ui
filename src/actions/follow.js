@@ -1,8 +1,8 @@
 import { del, get, postJSON } from '@tkrotoff/fetch';
-import { baseUrl } from '../utils/config';
+import { communityService } from '../utils/config';
 
 export function createFollow(sessionToken, userUuid, followingUuid) {
-  return postJSON(`${baseUrl}/follow`, {
+  return postJSON(`${communityService}/follow`, {
     following: {
       uuid: followingUuid,
     },
@@ -14,7 +14,7 @@ export function createFollow(sessionToken, userUuid, followingUuid) {
 }
 
 export function deleteFollow(sessionToken, followUuid) {
-  return del(`${baseUrl}/follow/${followUuid}`, {
+  return del(`${communityService}/follow/${followUuid}`, {
     headers: {
       'x-session-token': sessionToken,
     },
@@ -22,9 +22,9 @@ export function deleteFollow(sessionToken, followUuid) {
 }
 
 export function getFollowing(userUuid) {
-  return get(`${baseUrl}/follows/${userUuid}`);
+  return get(`${communityService}/follows/${userUuid}`);
 }
 
 export function getFollowers(userUuid) {
-  return get(`${baseUrl}/followers/${userUuid}`);
+  return get(`${communityService}/followers/${userUuid}`);
 }

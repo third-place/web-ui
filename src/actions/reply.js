@@ -1,8 +1,8 @@
 import { get, postJSON } from '@tkrotoff/fetch';
-import { baseUrl } from '../utils/config';
+import { communityService } from '../utils/config';
 
 export function getReplies(sessionToken, postUuid) {
-  return get(`${baseUrl}/post/${postUuid}/reply`, {
+  return get(`${communityService}/post/${postUuid}/reply`, {
     headers: {
       'x-session-token': sessionToken,
     },
@@ -10,7 +10,7 @@ export function getReplies(sessionToken, postUuid) {
 }
 
 export function createReply(sessionToken, postUuid, userUuid, text) {
-  return postJSON(`${baseUrl}/reply`, {
+  return postJSON(`${communityService}/reply`, {
     post: {
       uuid: postUuid,
     },

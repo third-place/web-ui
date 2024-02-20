@@ -1,12 +1,12 @@
 import { get, postJSON } from '@tkrotoff/fetch';
-import { baseUrl } from '../utils/config';
+import { imageService } from '../utils/config';
 
 export function getAlbum(uuid) {
-  return get(`${baseUrl}/album/${uuid}`);
+  return get(`${imageService}/album/${uuid}`);
 }
 
 export function createAlbum(sessionToken, name) {
-  return postJSON(`${baseUrl}/album`, { name }, {
+  return postJSON(`${imageService}/album`, { name }, {
     headers: {
       'x-session-token': sessionToken,
     }
@@ -14,5 +14,5 @@ export function createAlbum(sessionToken, name) {
 }
 
 export function getAlbums(username) {
-  return get(`${baseUrl}/albums/${username}`);
+  return get(`${imageService}/albums/${username}`);
 }
