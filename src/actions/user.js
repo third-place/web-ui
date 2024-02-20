@@ -38,9 +38,9 @@ export function updateUser(sessionToken, uuid, name, birthday, bio) {
   });
 }
 
-export function submitOtp(username, code) {
+export function submitOtp(email, code) {
   return postJSON(`${userService}/otp`, {
-    user: { username },
+    user: { email },
     code,
   });
 }
