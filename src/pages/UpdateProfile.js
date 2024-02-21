@@ -14,7 +14,7 @@ import { getUserByUsername, updateUser } from '../actions/user';
 import CircularIndeterminate from '../components/CircularIndeterminate';
 import Container from '../components/Container';
 import TextInput from '../components/TextInput';
-import { imageService } from '../utils/config';
+import { imageBaseUrl, imageService } from '../utils/config';
 import Context from '../utils/Context';
 
 export default function UpdateProfile() {
@@ -99,7 +99,7 @@ export default function UpdateProfile() {
     );
   }
 
-  const profilePic = loggedInUser.profile_pic ? `${imageService}/${loggedInUser.profile_pic}` : '';
+  const profilePic = loggedInUser.profile_pic ? `${imageBaseUrl}/${loggedInUser.profile_pic}` : '';
 
   return (
     <Container title={"Update Profile"}>
