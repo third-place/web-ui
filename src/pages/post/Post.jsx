@@ -1,7 +1,6 @@
 import { Button } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import MetaTags from 'react-meta-tags';
 import { getPost } from '../../actions/post';
 import { createReply, getReplies } from '../../actions/reply';
 import Container from '../../components/Container';
@@ -63,27 +62,6 @@ export default function Post() {
 
   return (
     <Container>
-      <MetaTags>
-        <title>{title}</title>
-        <meta
-          property="og:title"
-          content={title}
-        />
-        <meta
-          property="og:url"
-          content={`https://thirdplaceapp.com/p/${post.uuid}`}
-        />
-        { post.images && post.images.length > 0 && (
-          <meta
-            property="og:image"
-            content={`${imageBaseUrl}/${post.images[0].s3_key}`}
-          />
-        )}
-        <meta property="og:description" content={description} />
-        <meta property="og:site_name" content="Third Place" />
-        <meta property="og:type" content="article" />
-        <meta property="article:published_time" content={post.created_at} />
-      </MetaTags>
       <PostComponent post={post} onDelete={() => navigate("/")} showReply={false} />
       <h3>Replies</h3>
       { isLoggedIn && (

@@ -1,9 +1,9 @@
-const userService = process.env.REACT_APP_USER_SERVICE || 'http://localhost:9004';
-const communityService = process.env.REACT_APP_COMMUNITY_SERVICE || 'http://localhost:9001';
-const imageService = process.env.REACT_APP_IMAGE_SERVICE || 'http://localhost:9002';
-const notificationService = process.env.REACT_APP_NOTIFICATION_SERVICE || 'http://localhost:9003';
-const imageBaseUrl = process.env.REACT_APP_IMAGE_BASE_URL || 'https://thirdplace-local-dev.s3.us-west-2.amazonaws.com';
-const env = process.env.REACT_APP_ENV || 'prod';
+const userService = 'http://localhost:9004';
+const communityService = 'http://localhost:9001';
+const imageService = 'http://localhost:9002';
+const notificationService = 'http://localhost:9003';
+const imageBaseUrl = 'https://thirdplace-local-dev.s3.us-west-2.amazonaws.com';
+const env = 'prod';
 const appName = 'Home';
 const primaryColor = '#e71d36';
 const secondaryColor = '#95d5b2';

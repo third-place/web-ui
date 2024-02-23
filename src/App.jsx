@@ -36,7 +36,7 @@ import { darkTheme, lightTheme } from './utils/theme';
 import Users from './pages/Users';
 
 function App() {
-  const [sessionToken, setSessionToken] = useState(localStorage.getItem("token"));
+  const [sessionToken, setSessionToken] = useState(localStorage.getItem("token") || '');
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userEmail, setUserEmail] = useState(null);
@@ -117,7 +117,7 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      if (sessionToken !== null) {
+      if (sessionToken) {
         await tryGetUser(sessionToken);
       }
     })();
