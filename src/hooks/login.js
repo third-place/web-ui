@@ -12,15 +12,17 @@ export function useLogin() {
   } = useContext(Context);
   const [response, setResponse] = useState(null);
   const navigate = useNavigate();
-  useEffect(async () => {
+  useEffect(() => {
     if (response && response.status === 201) {
-      const data = await response.json();
-      setLoggedInUser(data.user);
-      setIsLoggedIn(true);
-      setSessionToken(data.token);
-      localStorage.setItem("token", data.token);
-      await tryGetNotifications(data.token);
-      navigate("/");
+      (async function() {
+        const data = await response.json();
+        setLoggedInUser(data.user);
+        setIsLoggedIn(true);
+        setSessionToken(data.token);
+        localStorage.setItem("token", data.token);
+        await tryGetNotifications(data.token);
+        navigate("/");
+      })()
     }
   }, [response]);
   return async (email, password) => {
