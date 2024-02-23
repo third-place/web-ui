@@ -66,6 +66,7 @@ export default function Container({ children, title }) {
       </Drawer>
       <Box
         component="main"
+        sx={{width: '100%'}}
       >
         { title && (
           <Typography variant="h1">
