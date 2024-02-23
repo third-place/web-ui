@@ -37,8 +37,6 @@ export default function Home() {
     setPosts(posts.filter((p) => p !== post));
   };
 
-  console.log("isAppLoaded", isAppLoaded);
-
   if (!isAppLoaded) {
     return (
       <Container />
@@ -46,7 +44,7 @@ export default function Home() {
   }
 
   return (
-    <Container title="Home">
+    <Container>
       { !loggedInUser && (
         <PaperContainer>
           <Typography variant="h1">
