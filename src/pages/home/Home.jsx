@@ -44,7 +44,7 @@ export default function Home() {
   }
 
   return (
-    <Container>
+    <Container title="Home">
       { !loggedInUser && (
         <PaperContainer>
           <Typography variant="h1">
