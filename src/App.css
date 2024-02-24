@@ -33,3 +33,13 @@
 .read-the-docs {
   color: #888;
 }
+
+div.app-bar a {
+  color: white;
+}
+
+.nav-list-item-text {
+  position: relative;
+  top: -2px;
+  padding-left: 5px;
+}
