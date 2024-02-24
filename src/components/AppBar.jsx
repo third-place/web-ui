@@ -19,11 +19,11 @@ import Context from '../utils/Context.js';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import PersonIcon from '@mui/icons-material/Person';
 import LoginIcon from '@mui/icons-material/Login';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import { Tooltip } from '@mui/material';
+import { Avatar, Tooltip } from '@mui/material';
+import { imageBaseUrl } from '../utils/config.js';
 
 const drawerWidth = 240;
 
@@ -41,6 +41,7 @@ function DrawerAppBar({ title, window, children }) {
 
   const getNavItems = () => {
     if (isLoggedIn) {
+      const profilePic = loggedInUser.profile_pic ? `${imageBaseUrl}/${loggedInUser.profile_pic}` : '';
       return [
         {
           name: 'Home',
@@ -54,7 +55,10 @@ function DrawerAppBar({ title, window, children }) {
         },
         {
           name: 'Profile',
-          component: <PersonIcon />,
+          component: <Avatar
+            alt={loggedInUser.username}
+            src={profilePic}
+          />,
           url: `/u/${loggedInUser.username}`,
         },
         // {
