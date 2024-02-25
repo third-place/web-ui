@@ -142,13 +142,11 @@ function DrawerAppBar({ title, window, children }) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {getNavItems().map((item) => (
-                <Button sx={{ color: '#fff' }} key={item.name}>
-                  <Link to={item.url}>
-                    <Tooltip title={item.name}>
-                      {item.component}
-                    </Tooltip>
-                  </Link>
-                </Button>
+              <Button sx={{ color: '#fff' }} key={item.name} component={Link} to={item.url}>
+                <Tooltip title={item.name}>
+                  {item.component}
+                </Tooltip>
+              </Button>
             ))}
           </Box>
         </Toolbar>
