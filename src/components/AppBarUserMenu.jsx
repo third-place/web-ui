@@ -40,10 +40,16 @@ export default function AppBarUserMenu() {
   const profilePic = loggedInUser.profile_pic ? `${imageBaseUrl}/${loggedInUser.profile_pic}` : '';
 
   return (
-    <Box sx={{ flexGrow: 0 }}>
+    <Box sx={{ flexGrow: 0, minWidth: '64px', textAlign: 'center' }}>
       <Tooltip title="Menu">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt={loggedInUser.name} src={profilePic} />
+          <Avatar
+            alt={loggedInUser.name}
+            src={profilePic}
+            sx={{
+              width: '1em',
+              height: '1em'
+          }} />
         </IconButton>
       </Tooltip>
       <Menu
