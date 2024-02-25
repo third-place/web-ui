@@ -22,8 +22,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import LoginIcon from '@mui/icons-material/Login';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import { Avatar, Tooltip } from '@mui/material';
-import { imageBaseUrl } from '../utils/config.js';
+import { Tooltip } from '@mui/material';
 import AppBarUserMenu from './AppBarUserMenu';
 
 const drawerWidth = 240;
@@ -42,7 +41,6 @@ function DrawerAppBar({ title, window, children }) {
 
   const getNavItems = () => {
     if (isLoggedIn) {
-      // const profilePic = loggedInUser.profile_pic ? `${imageBaseUrl}/${loggedInUser.profile_pic}` : '';
       return [
         {
           name: 'Home',
@@ -54,26 +52,6 @@ function DrawerAppBar({ title, window, children }) {
           component: <NotificationsIcon />,
           url: '/notifications',
         },
-        // {
-        //   name: 'Profile',
-        //   component: <Avatar
-        //     alt={loggedInUser.username}
-        //     src={profilePic}
-        //   />,
-        //   url: `/u/${loggedInUser.username}`,
-        // },
-        // {
-        //   name: 'Update Profile',
-        //   url: '/update-profile',
-        // },
-        // {
-        //   name: 'Drafts',
-        //   url: '/drafts',
-        // },
-        // {
-        //   name: 'Logout',
-        //   url: '/logout',
-        // }
       ];
     }
     return [
