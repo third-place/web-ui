@@ -103,7 +103,7 @@ function DrawerAppBar({ title, window, children }) {
       <List>
         {getNavItems().map((item) => (
           <ListItem key={item.name} disablePadding>
-            <ListItemButton onClick={handleClickNav} component={Link} to={item.url}>
+            <ListItemButton component={Link} to={item.url}>
               <ListItemIcon>
                 {item.component}
                 <ListItemText className="nav-list-item-text">
