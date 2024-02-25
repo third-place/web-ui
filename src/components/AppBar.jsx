@@ -32,7 +32,6 @@ function DrawerAppBar({ title, window, children }) {
 
   const {
     isLoggedIn,
-    loggedInUser,
   } = useContext(Context);
 
   const handleDrawerToggle = () => {
