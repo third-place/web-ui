@@ -1,8 +1,8 @@
 FROM node:21.6.2-alpine3.18 AS build
 WORKDIR /app
 COPY . .
-RUN npm install -g pnpm vite
-RUN pnpm install --prod --frozen-lockfile
+RUN npm install -g pnpm
+RUN pnpm install --frozen-lockfile
 RUN pnpm build
 
 FROM nginx:stable-alpine

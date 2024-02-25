@@ -17,6 +17,9 @@ dependencies:
   '@mui/material':
     specifier: ^5.15.10
     version: 5.15.10(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.57)(react-dom@18.2.0)(react@18.2.0)
+  '@tkrotoff/fetch':
+    specifier: ^0.17.0
+    version: 0.17.0
   draft-js:
     specifier: ^0.11.7
     version: 0.11.7(react-dom@18.2.0)(react@18.2.0)
@@ -1052,6 +1055,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@tkrotoff/fetch@0.17.0:
+    resolution: {integrity: sha512-IKC59ZRjCNaeUVpdQGW94qYGkESfmHRMT/VHo/SfEtxMJfBzEtGTzd0upPa9emdlx6vgmn9s2vNXbakY7T93Bw==}
+    dev: false
 
   /@types/babel__core@7.20.5:
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
