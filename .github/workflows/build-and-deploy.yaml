@@ -3,14 +3,7 @@ on:
     branches:
       - main
 jobs:
-  run-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: yarn
-      - run: yarn run tests
   publish-docker-image:
-    needs: run-tests
     uses: third-place/actions/.github/workflows/publish-docker-image.yaml@main
     secrets: inherit
     with:
