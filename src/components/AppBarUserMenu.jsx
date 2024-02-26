@@ -7,21 +7,6 @@ import { Link } from 'react-router-dom';
 import Context from '../utils/Context.js';
 import { imageBaseUrl } from '../utils/config.js';
 
-const links = [
-  {
-    name: 'Update Profile',
-    url: '/update-profile',
-  },
-  {
-    name: 'Drafts',
-    url: '/drafts',
-  },
-  {
-    name: 'Logout',
-    url: '/logout',
-  }
-];
-
 export default function AppBarUserMenu() {
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -38,6 +23,25 @@ export default function AppBarUserMenu() {
   };
 
   const profilePic = loggedInUser.profile_pic ? `${imageBaseUrl}/${loggedInUser.profile_pic}` : '';
+
+  const getLinks = () => [
+    {
+      name: 'Profile',
+      url: `/u/${loggedInUser.username}`
+    },
+    {
+      name: 'Update Profile',
+      url: '/update-profile',
+    },
+    {
+      name: 'Drafts',
+      url: '/drafts',
+    },
+    {
+      name: 'Logout',
+      url: '/logout',
+    }
+  ];
 
   return (
     <Box sx={{ flexGrow: 0, minWidth: '64px', textAlign: 'center' }}>
@@ -68,7 +72,7 @@ export default function AppBarUserMenu() {
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
       >
-        {links.map((link) => (
+        {getLinks().map((link) => (
           <MenuItem key={link.name} onClick={handleCloseUserMenu} component={Link} to={link.url}>
             <Typography textAlign="center">{link.name}</Typography>
           </MenuItem>
