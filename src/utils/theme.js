@@ -11,9 +11,17 @@ const shared = {
       fontSize: "36pt",
       padding: "40px 0 20px 0",
     },
+    h6: {
+      lineHeight: 1.2,
+    },
     fontSize: 16,
     body1: {
       lineHeight: 1.6,
+    },
+    subtitle1: {
+      fontSize: '11pt',
+      lineHeight: 1.5,
+      color: 'gray',
     },
   },
 };

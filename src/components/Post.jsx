@@ -25,7 +25,7 @@ import { imageBaseUrl } from '../utils/config';
 import Context from '../utils/Context';
 import PostMenu from './PostMenu';
 import TitleSlug from './TitleSlug';
-import { timeAgo } from '../utils/timeAgo.js';
+import { timeAgo } from '../utils/timeAgo';
 
 export default function Post({
   post: {
@@ -121,6 +121,9 @@ export default function Post({
           created={created}
           uuid={uuid}
         />
+        <Typography variant="subtitle1">
+          {timeAgo.format(created)}
+        </Typography>
         <div onClick={onClickExpand}>
           <div
             style={{
@@ -163,6 +166,9 @@ export default function Post({
               username={share.user.username}
               created={new Date(share.created_at)}
             />
+            <Typography variant="subtitle1">
+              {timeAgo.format(created)}
+            </Typography>
             <div className="post">
               <ReactMarkdown>
                 {share.text}
