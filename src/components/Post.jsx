@@ -26,6 +26,7 @@ import Context from '../utils/Context';
 import PostMenu from './PostMenu';
 import TitleSlug from './TitleSlug';
 import { timeAgo } from '../utils/timeAgo';
+import PostDeleteDialog from './PostDeleteDialog';
 
 export default function Post({
   post: {
@@ -221,27 +222,11 @@ export default function Post({
           </IconButton>
         </div>
       )}
-      <Dialog
+      <PostDeleteDialog
         open={isDialogOpen}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">
-          Delete this post?
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Are you sure? This cannot be undone!
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={tryDelete} autoFocus>
-            Confirm
-          </Button>
-        </DialogActions>
-      </Dialog>
+        handleClose={handleClose}
+        tryDelete={tryDelete}
+      />
     </Card>
   );
 }
