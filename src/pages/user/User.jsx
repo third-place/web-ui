@@ -21,7 +21,7 @@ import UserTabs from './components/UserTabs';
 import { imageBaseUrl } from '../../utils/config';
 import Context from '../../utils/Context';
 import { canAdminister, Role } from '../../utils/role';
-import Albums from '../Albums';
+import Albums from '../albums/Albums.jsx';
 import Likes from '../Likes';
 import Posts from '../Posts';
 
