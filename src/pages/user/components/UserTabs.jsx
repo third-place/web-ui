@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import { Typography } from '@mui/material';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -53,17 +54,36 @@ export default function UserTabs({ children, onChange }) {
     setValue(newValue);
   };
 
+  const label = (label, index, value) => (
+    <Typography
+      variant="button"
+      color={index === value ? "primary.light" : "primary.dark"}
+      sx={{ "&:hover": { color: "primary.light"}}}
+    >
+      {label}
+    </Typography>
+  );
+
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="User posts and pictures"
         >
-          <Tab label="Posts" {...a11yProps(0)} />
-          <Tab label="Pictures" {...a11yProps(1)} />
-          <Tab label="Likes" {...a11yProps(2)} />
+          <Tab
+            label={label("Posts", 0, value)}
+            {...a11yProps(0)}
+          />
+          <Tab
+            label={label("Pictures", 1, value)}
+            {...a11yProps(1)}
+          />
+          <Tab
+            label={label("Likes", 2, value)}
+            {...a11yProps(2)}
+          />
         </Tabs>
       </Box>
       <TabPanel value={value} index={value}>
