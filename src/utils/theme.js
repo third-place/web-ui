@@ -30,9 +30,6 @@ const lightTheme = createTheme({
       },
       action: {
         active: '#0052cc',
-          hover: '#0052cc',
-          focus: '#0052cc',
-          selected: '#0052cc',
       },
       text: {
         primary: "#111",
@@ -57,9 +54,6 @@ const darkTheme = createTheme({
       },
       action: {
         active: '#ccc',
-        hover: '#2f54d0',
-        focus: '#2f54d0',
-        selected: '#2f54d0',
       },
       text: {
         primary: "#ccc",

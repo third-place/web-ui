@@ -6,7 +6,7 @@ const imageBaseUrl = 'https://thirdplace-local-dev.s3.us-west-2.amazonaws.com';
 const env = 'prod';
 const appName = 'Home';
 const primaryColor = '#e71d36';
-const secondaryColor = '#95d5b2';
+const secondaryColor = '#17A398';
 const backgroundColor = '#FDFFFC';
 
 export {

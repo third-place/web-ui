@@ -9,8 +9,8 @@ export default function TitleSlug({ name, username, created }) {
     <Typography variant="h6">
       <Link component={RouterLink} to={`/u/${username}`}>
         <b>{name}</b>
-        <span style={{color: "#f17887", margin }}>@{username}</span>
-        <span style={{fontSize: "smaller"}}>{timeAgo.format(created)}</span>
+        <span style={{ margin }}>@{username}</span>
+        <span style={{ fontSize: "12pt" }}>{timeAgo.format(created)}</span>
       </Link>
     </Typography>
   );

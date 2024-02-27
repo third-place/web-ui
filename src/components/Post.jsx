@@ -7,7 +7,7 @@ import {
   DialogContentText,
   DialogTitle,
   Paper,
-  Link, Card, IconButton,
+  Link, Card, IconButton, Typography,
 } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
@@ -25,6 +25,7 @@ import { imageBaseUrl } from '../utils/config';
 import Context from '../utils/Context';
 import PostMenu from './PostMenu';
 import TitleSlug from './TitleSlug';
+import { timeAgo } from '../utils/timeAgo.js';
 
 export default function Post({
   post: {
@@ -148,23 +149,25 @@ export default function Post({
         </div>
         { share && (
           <Paper
-            sx={{p: 1, mb: 1, }}
-            elevation={0}
+            sx={{p: 1, mb: 1,}}
+            elevation={2}
             variant="outlined"
           >
             <Avatar
               alt={share.user.name}
               src={share.user.profile_pic ? `${imageBaseUrl}/${share.user.profile_pic}` : ''}
-              style={{ float: "left", marginRight: 10 }}
+              style={{float: "left", marginRight: 10}}
             />
             <TitleSlug
               name={share.user.name}
               username={share.user.username}
               created={new Date(share.created_at)}
             />
-            <ReactMarkdown>
-              {share.text}
-            </ReactMarkdown>
+            <div className="post">
+              <ReactMarkdown>
+                {share.text}
+              </ReactMarkdown>
+            </div>
           </Paper>
         )}
         <div>

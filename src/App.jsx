@@ -22,7 +22,6 @@ import {
   Home,
   Post,
 } from './pages';
-import './App.css';
 import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import Signup from './pages/Signup';
@@ -34,6 +33,7 @@ import {
 } from "react-router-dom";
 import { darkTheme, lightTheme } from './utils/theme';
 import Users from './pages/Users';
+import Logout from './pages/Logout.jsx';
 
 function App() {
   const [sessionToken, setSessionToken] = useState(localStorage.getItem("token") || '');
@@ -162,6 +162,7 @@ function App() {
             <Route path="/a/:uuid" element={<Album />} />
             <Route path="/drafts" element={<Drafts />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/otp" element={<OTP />} />
             <Route path="/notifications" element={<Notifications />} />
