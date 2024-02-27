@@ -56,7 +56,11 @@ export default function UserTabs({ children, onChange }) {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="User posts and pictures">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="User posts and pictures"
+        >
           <Tab label="Posts" {...a11yProps(0)} />
           <Tab label="Pictures" {...a11yProps(1)} />
           <Tab label="Likes" {...a11yProps(2)} />
