@@ -17,11 +17,6 @@ import Notifications from './pages/Notifications';
 import OTP from './pages/OTP';
 import PostEdit from './pages/PostEdit';
 import UpdateProfile from './pages/UpdateProfile';
-import {
-  User,
-  Home,
-  Post,
-} from './pages';
 import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import Signup from './pages/Signup';
@@ -33,7 +28,10 @@ import {
 } from "react-router-dom";
 import { darkTheme, lightTheme } from './utils/theme';
 import Users from './pages/Users';
-import Logout from './pages/Logout.jsx';
+import Logout from './pages/Logout';
+import User from './pages/user/User';
+import Post from './components/Post';
+import Home from './pages/home/Home';
 
 function App() {
   const [sessionToken, setSessionToken] = useState(localStorage.getItem("token") || '');
