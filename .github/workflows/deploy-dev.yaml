@@ -9,6 +9,7 @@ jobs:
     with:
       name: third-place/web-ui
       directory: .
+      dockerfile: Dockerfile.dev
   deploy-service:
     needs: publish-docker-image
     uses: third-place/actions/.github/workflows/deploy-env.yaml@main
