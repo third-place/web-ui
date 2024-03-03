@@ -1,5 +1,5 @@
 service:
-  targetPort: 4173
+  targetPort: 5173
   env:
     USER_SERVICE: 192.168.254.32:9004
     NOTIFICATION_SERVICE: 192.168.254.32:9003

@@ -16,8 +16,7 @@ WORKDIR /app
 COPY . .
 RUN npm install -g pnpm
 RUN pnpm install --frozen-lockfile
-RUN pnpm build
 
-EXPOSE 4173
+EXPOSE 5173
 
 CMD ["pnpm", "dev"]
