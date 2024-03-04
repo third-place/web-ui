@@ -13,10 +13,9 @@ jobs:
   deploy-service:
     needs: publish-docker-image
     uses: third-place/actions/.github/workflows/deploy-env.yaml@main
-    environment: dev
     with:
       service: web-ui
       env: dev
     secrets:
       PAT: ${{ secrets.CR_PAT }}
-      KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+      KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DEV }}
