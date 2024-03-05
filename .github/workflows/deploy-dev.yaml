@@ -16,5 +16,4 @@ jobs:
     with:
       service: web-ui
       env: dev
-    secrets:
-      inherit: true
+    secrets: inherit
