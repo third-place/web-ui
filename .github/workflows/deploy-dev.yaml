@@ -17,5 +17,4 @@ jobs:
       service: web-ui
       env: dev
     secrets:
-      PAT: ${{ secrets.CR_PAT }}
-      KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DEV }}
+      inherit: true
