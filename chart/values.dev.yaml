@@ -1,7 +1,7 @@
 service:
   targetPort: 5173
   env:
-    VITE_USER_SERVICE: http://user-service.dev.thirdplaceapp.com
-    VITE_NOTIFICATION_SERVICE: http://notification-service.dev.thirdplaceapp.com
-    VITE_IMAGE_SERVICE: http://image-service.dev.thirdplaceapp.com
-    VITE_COMMUNITY_SERVICE: http://community-service.dev.thirdplaceapp.com
+    VITE_USER_SERVICE: http://user-service.thirdplaceappdev.com
+    VITE_NOTIFICATION_SERVICE: http://notification-service.thirdplaceappdev.com
+    VITE_IMAGE_SERVICE: http://image-service.thirdplaceappdev.com
+    VITE_COMMUNITY_SERVICE: http://community-service.thirdplaceappdev.com
