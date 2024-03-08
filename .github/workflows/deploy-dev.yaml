@@ -7,13 +7,13 @@ jobs:
     uses: third-place/actions/.github/workflows/publish-docker-image.yaml@main
     secrets: inherit
     with:
-      name: third-place/web-ui
+      name: web-ui
       directory: .
       dockerfile: Dockerfile.dev
   deploy-service:
     needs: publish-docker-image
     uses: third-place/actions/.github/workflows/deploy-env.yaml@main
     with:
-      service: web-ui
+      name: web-ui
       env: dev
     secrets: inherit
