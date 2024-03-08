@@ -6,6 +6,5 @@ service:
   serviceType: LoadBalancer
   ingress:
     enabled: true
-    host: thirdplaceappdev.com
     paths:
       - /

@@ -5,3 +5,5 @@ service:
     VITE_NOTIFICATION_SERVICE: http://notification-service.thirdplaceappdev.com
     VITE_IMAGE_SERVICE: http://image-service.thirdplaceappdev.com
     VITE_COMMUNITY_SERVICE: http://community-service.thirdplaceappdev.com
+  ingress:
+    host: thirdplaceappdev.com
