@@ -1,7 +1,7 @@
 service:
   enabled: true
   port: 80
-  targetPort: 3000
+  targetPort: 5173
   secrets: []
   serviceType: NodePort
   ingress:
