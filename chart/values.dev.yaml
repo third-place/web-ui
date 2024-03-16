@@ -1,5 +1,4 @@
 service:
-  targetPort: 5173
   env:
     VITE_USER_SERVICE: http://user-service.thirdplaceappdev.com
     VITE_NOTIFICATION_SERVICE: http://notification-service.thirdplaceappdev.com
