@@ -1,8 +1,8 @@
 import { del, post } from '@tkrotoff/fetch';
-import { communityService } from '../utils/config';
+import { endpoints } from '../utils/config';
 
 export function createPostLike(sessionToken, uuid) {
-  return post(`${communityService}/post/${uuid}/like`, "", {
+  return post(`${endpoints.community}/post/${uuid}/like`, "", {
     headers: {
       'x-session-token': sessionToken,
     },
@@ -10,7 +10,7 @@ export function createPostLike(sessionToken, uuid) {
 }
 
 export function deletePostLike(sessionToken, uuid) {
-  return del(`${communityService}/post/${uuid}/like`, {
+  return del(`${endpoints.community}/post/${uuid}/like`, {
     headers: {
       'x-session-token': sessionToken,
     },

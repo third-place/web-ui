@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { getUserByUsername } from '../actions/user';
 import Container from '../components/Container';
-import { userService } from '../utils/config';
+import { endpoints } from '../utils/config';
 import Context from '../utils/Context';
 import { canAdminister, Role } from '../utils/role';
 
@@ -21,7 +21,7 @@ export default function ModerateUser() {
   };
 
   const banUser = async () => {
-    await postJSON(`${userService}/ban/${username}`, {
+    await postJSON(`${endpoints.user}/ban/${username}`, {
       isBanned: true,
     }, {
       headers: {
@@ -34,7 +34,7 @@ export default function ModerateUser() {
   };
 
   const unbanUser = async () => {
-    await del(`${userService}/ban/${username}`, {
+    await del(`${endpoints.user}/ban/${username}`, {
       headers: {
         'x-session-token': sessionToken,
       }

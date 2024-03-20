@@ -14,7 +14,7 @@ import { getUserByUsername, updateUser } from '../actions/user';
 import CircularIndeterminate from '../components/CircularIndeterminate';
 import Container from '../components/Container';
 import TextInput from '../components/TextInput';
-import { imageBaseUrl, imageService } from '../utils/config';
+import { imageBaseUrl, endpoints } from '../utils/config';
 import Context from '../utils/Context';
 
 export default function UpdateProfile() {
@@ -67,7 +67,7 @@ export default function UpdateProfile() {
         "x-session-token": sessionToken,
       },
     };
-    const response = await post(`${imageService}/album/profile`, formData, config);
+    const response = await post(`${endpoints.image}/album/profile`, formData, config);
     const data = await response.json();
     const newUser = {...loggedInUser};
     newUser.profile_pic = data.s3_key;

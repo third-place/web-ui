@@ -9,7 +9,8 @@ jobs:
     with:
       name: web-ui
       directory: .
-      dockerfile: Dockerfile.dev
+      buildargs: |
+        MODE=development
   deploy-service:
     needs: publish-docker-image
     uses: third-place/actions/.github/workflows/deploy-env.yaml@main

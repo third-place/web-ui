@@ -1,8 +1,8 @@
 import { get, postJSON } from '@tkrotoff/fetch';
-import { userService } from '../utils/config';
+import { endpoints } from '../utils/config';
 
 export function getInvites(sessionToken, offset) {
-  return get(`${userService}/invite?offset=${offset}`, {
+  return get(`${endpoints.user}/invite?offset=${offset}`, {
     headers: {
       'x-session-token': sessionToken,
     }
@@ -10,7 +10,7 @@ export function getInvites(sessionToken, offset) {
 }
 
 export function createInvite(sessionToken) {
-  return postJSON(`${userService}/invite`, {}, {
+  return postJSON(`${endpoints.user}/invite`, {}, {
     headers: {
       'x-session-token': sessionToken,
     }

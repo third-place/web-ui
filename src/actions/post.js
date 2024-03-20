@@ -1,8 +1,8 @@
 import { postJSON, get, del, putJSON } from '@tkrotoff/fetch';
-import { communityService } from '../utils/config';
+import { endpoints } from '../utils/config';
 
 export function createPost(sessionToken, userUuid, newPostText, draft, images) {
-  return postJSON(`${communityService}/post`, {
+  return postJSON(`${endpoints.community}/post`, {
     user: {uuid: userUuid},
     text:  newPostText,
     draft,
@@ -15,7 +15,7 @@ export function createPost(sessionToken, userUuid, newPostText, draft, images) {
 }
 
 export function createShare(sessionToken, userUuid, newPostText, images, postUuid) {
-  return postJSON(`${communityService}/share`, {
+  return postJSON(`${endpoints.community}/share`, {
     user: {uuid: userUuid},
     post: {uuid: postUuid},
     text:  newPostText,
@@ -28,7 +28,7 @@ export function createShare(sessionToken, userUuid, newPostText, images, postUui
 }
 
 export function deletePost(sessionToken, postUuid) {
-  return del(`${communityService}/post/${postUuid}`, {
+  return del(`${endpoints.community}/post/${postUuid}`, {
     headers: {
       'x-session-token': sessionToken,
     },
@@ -36,7 +36,7 @@ export function deletePost(sessionToken, postUuid) {
 }
 
 export function getDraftPosts(sessionToken) {
-  return get(`${communityService}/post/draft`, {
+  return get(`${endpoints.community}/post/draft`, {
     headers: {
       'x-session-token': sessionToken,
     }
@@ -44,7 +44,7 @@ export function getDraftPosts(sessionToken) {
 }
 
 export function getPostsForUser(sessionToken, username) {
-  return get(`${communityService}/posts/${username}`, {
+  return get(`${endpoints.community}/posts/${username}`, {
     headers: {
       'x-session-token': sessionToken,
     },
@@ -52,15 +52,15 @@ export function getPostsForUser(sessionToken, username) {
 }
 
 export function getLikedPostsForUser(username) {
-  return get(`${communityService}/likes/${username}`);
+  return get(`${endpoints.community}/likes/${username}`);
 }
 
 export function getFollowPostsForUser(sessionToken, userUuid) {
-  return get(`${communityService}/post/follows/${userUuid}`);
+  return get(`${endpoints.community}/post/follows/${userUuid}`);
 }
 
 export function getPosts(sessionToken) {
-  return get(`${communityService}/post`, {
+  return get(`${endpoints.community}/post`, {
     headers: {
       'x-session-token': sessionToken,
     },
@@ -68,7 +68,7 @@ export function getPosts(sessionToken) {
 }
 
 export function getPost(sessionToken, postUuid) {
-  return get(`${communityService}/post/${postUuid}`, {
+  return get(`${endpoints.community}/post/${postUuid}`, {
     headers: {
       'x-session-token': sessionToken,
     },
@@ -76,7 +76,7 @@ export function getPost(sessionToken, postUuid) {
 }
 
 export function updatePost(sessionToken, uuid, text, draft) {
-  return putJSON(`${communityService}/post`, {
+  return putJSON(`${endpoints.community}/post`, {
     uuid,
     text,
     draft,

@@ -6,7 +6,7 @@ import Alert from '../components/Alert';
 import Container from '../components/Container';
 import PaperContainer from '../components/PaperContainer';
 import TextInput from '../components/TextInput';
-import { userService } from '../utils/config';
+import { endpoints } from '../utils/config';
 import { useLogin } from '../hooks/login';
 
 export default function ForgotPassword() {
@@ -25,7 +25,7 @@ export default function ForgotPassword() {
     event.preventDefault();
     if (readyForPassword && !error) {
       try {
-        await putJSON(`${userService}/forgot-password`, {
+        await putJSON(`${endpoints.user}/forgot-password`, {
           user: {
             email,
             password,
@@ -43,7 +43,7 @@ export default function ForgotPassword() {
     setReadyForPassword(false);
     setError(false);
     try {
-      await postJSON(`${userService}/forgot-password`, {email});
+      await postJSON(`${endpoints.user}/forgot-password`, {email});
       setSubmitted(true);
     } catch (e) {
       setError(true);
