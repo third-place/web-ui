@@ -12,10 +12,10 @@ const envConfig = {
     notification: 'https://notification-service.thirdplaceapp.com',
   },
   development: {
-    user: 'http://user-service.thirdplaceappdev.com',
-    community: 'http://community-service.thirdplaceappdev.com',
-    image: 'http://image-service.thirdplaceappdev.com',
-    notification: 'http://notification-service.thirdplaceappdev.com',
+    user: 'https://user-service.thirdplaceappdev.com',
+    community: 'https://community-service.thirdplaceappdev.com',
+    image: 'https://image-service.thirdplaceappdev.com',
+    notification: 'https://notification-service.thirdplaceappdev.com',
   },
 };
 
