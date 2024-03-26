@@ -30,8 +30,8 @@ import { darkTheme, lightTheme } from './utils/theme';
 import Users from './pages/Users';
 import Logout from './pages/Logout';
 import User from './pages/user/User';
-import Post from './components/Post';
 import Home from './pages/home/Home';
+import Post from './pages/post/Post';
 
 function App() {
   const [sessionToken, setSessionToken] = useState(localStorage.getItem("token") || '');
