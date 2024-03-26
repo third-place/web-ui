@@ -12,16 +12,19 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
   const login = useLogin();
+  const navigation = useNavigate();
 
   const tryLogin = async (event) => {
     event.preventDefault();
     const response = await login(email, password);
-    if (response.status !== 201) {
-      const data = await response.json();
-      const newErrors = {};
-      newErrors[data.input] = data.message;
-      setErrors(newErrors);
+    if (response.status === 201) {
+      navigation('/');
+      return;
     }
+    const data = await response.json();
+    const newErrors = {};
+    newErrors[data.input] = data.message;
+    setErrors(newErrors);
   };
 
   return (
