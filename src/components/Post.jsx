@@ -1,13 +1,10 @@
 import {
   Avatar,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   Paper,
-  Link, Card, IconButton, Typography,
+  Link,
+  Card,
+  IconButton,
+  Typography,
 } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';

@@ -4,7 +4,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getPost } from '../../actions/post';
 import { createReply, getReplies } from '../../actions/reply';
 import Container from '../../components/Container';
-import { imageBaseUrl } from '../../utils/config';
 import Reply from './components/Reply';
 import TextInput from '../../components/TextInput';
 import { default as PostComponent } from '../../components/Post';
