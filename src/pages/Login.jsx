@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Container from '../components/Container';
 import PaperContainer from '../components/PaperContainer';
 import TextInput from '../components/TextInput';
@@ -12,7 +12,6 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
   const login = useLogin();
-  const navigation = useNavigate();
 
   const tryLogin = async (event) => {
     event.preventDefault();
