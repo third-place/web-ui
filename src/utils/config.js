@@ -1,4 +1,4 @@
-const imageBaseUrl = import.meta.env.VITE_IMAGE_HOST || 'https://thirdplaceappdev.com/asset';
+const imageBaseUrl = import.meta.env.VITE_IMAGE_HOST || 'https://image-service.thirdplaceappdev.com/asset';
 const env = 'prod';
 const primaryColor = '#e71d36';
 const secondaryColor = '#17A398';
