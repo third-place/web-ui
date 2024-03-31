@@ -17,10 +17,6 @@ export default function Login() {
   const tryLogin = async (event) => {
     event.preventDefault();
     const response = await login(email, password);
-    if (response.status === 201) {
-      navigation('/');
-      return;
-    }
     const data = await response.json();
     const newErrors = {};
     newErrors[data.input] = data.message;
