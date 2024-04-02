@@ -16,6 +16,7 @@ export default function Logout() {
       setLoggedInUser(null);
       setIsLoggedIn(false);
       setSessionToken(null);
+      localStorage.clear();
       navigate('/');
     })()
   }, []);
