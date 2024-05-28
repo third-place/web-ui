@@ -1,8 +1,8 @@
-div.post a {
+a {
     color: #d32f2f;
     text-decoration-color: rgba(231, 29, 54, 0.4);
 }
 
-div.post a:hover {
+a:hover {
     text-decoration-color: #d32f2f;
 }

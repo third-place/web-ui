@@ -51,7 +51,7 @@ export default function Home() {
             A New Social Network
           </Typography>
           <Typography>
-            Third place is an open source social network. The [code that powers this site](https://github.com/third-place) is free for anyone to download, view, and modify. We embrace open source because that is how we learned to program, and we hope others find this project useful in their learning journey.
+            Third place is an open source social network. The <Link href="https://github.com/third-place">code that powers this site</Link> is free for anyone to download, view, and modify. We embrace open source because that is how we learned to program, and we hope others find this project useful in their learning journey.
           </Typography>
           <Typography sx={{paddingTop: 1}}>
             While Third place is in closed beta, invite codes are required for signing up.
